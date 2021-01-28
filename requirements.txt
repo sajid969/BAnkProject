@@ -43,7 +43,6 @@ lxml==4.5.0
 Markdown==3.2.2
 MarkupPy==1.14
 mccabe==0.6.1
-menuinst==1.4.16
 mysqlclient==1.4.6
 numpy==1.18.1
 odfpy==1.4.1
