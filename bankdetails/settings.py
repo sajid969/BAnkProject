@@ -25,7 +25,7 @@ TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = 'x36@xyc2^gwig2tl!e*vwm6ump&o2yu8h!bgh1jp9247@x@vzx'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['sajidbankdetails.herokuapp.com','127.0.0.1']
 
