@@ -3,16 +3,16 @@ from rest_framework import generics
 from api.serializers import BankDetailsSerializer
 from sheetupload.models import BankDetails
 from rest_framework.pagination import PageNumberPagination
-from rest_framework_simplejwt.authentication import JWTAuthentication
-from rest_framework.permissions import IsAuthenticated
+#from rest_framework_simplejwt.authentication import JWTAuthentication
+#from rest_framework.permissions import IsAuthenticated
 # Create your views here.
 
 class BankDetailsAPIView(generics.ListAPIView):
     queryset=BankDetails.objects.all()
     serializer_class=BankDetailsSerializer
     pagination_class=PageNumberPagination
-    authentication_classes=[JWTAuthentication,]
-    permission_classes=[IsAuthenticated,]
+    #authentication_classes=[JWTAuthentication,]
+    #permission_classes=[IsAuthenticated,]
 
 
 class bankcityandnameAPIView(generics.ListAPIView):
