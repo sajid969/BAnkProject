@@ -17,6 +17,8 @@ class BankDetailsAPIView(generics.ListAPIView):
 
 class bankcityandnameAPIView(generics.ListAPIView):
     serializer_class=BankDetailsSerializer
+    authentication_classes=[JWTAuthentication,]
+    permission_classes=[IsAuthenticated,]
     def get_queryset(self):
         qs=BankDetails.objects.all()
         bankcity=self.request.GET.get('city')
@@ -26,18 +28,18 @@ class bankcityandnameAPIView(generics.ListAPIView):
             qs=qs.filter(city__icontains=bankcity,bank_name__icontains=bankname)
 
         return qs
-    authentication_classes=[JWTAuthentication,]
-    permission_classes=[IsAuthenticated,]
+    
 
 
 
 class ifscdetailsAPIView(generics.ListAPIView):
     serializer_class=BankDetailsSerializer
+    authentication_classes=[JWTAuthentication,]
+    permission_classes=[IsAuthenticated,]
     def get_queryset(self):
         qs=BankDetails.objects.all()
         ifsccode=self.request.GET.get('ifsc')
         if ifsccode is not None:
             qs=qs.filter(ifsc__icontains=ifsccode)
         return qs
-    authentication_classes=[JWTAuthentication,]
-    permission_classes=[IsAuthenticated,]
+    
