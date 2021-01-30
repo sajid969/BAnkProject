@@ -22,12 +22,12 @@ class bankcityandnameAPIView(generics.ListAPIView):
         bankcity=self.request.GET.get('city')
         bankname=self.request.GET.get('bank_name')
         pagination_class=PageNumberPagination
-        authentication_classes=[JWTAuthentication,]
-        permission_classes=[IsAuthenticated,]
         if bankcity is not None and bankname is not None:
             qs=qs.filter(city__icontains=bankcity,bank_name__icontains=bankname)
 
         return qs
+    authentication_classes=[JWTAuthentication,]
+    permission_classes=[IsAuthenticated,]
 
 
 
@@ -36,8 +36,8 @@ class ifscdetailsAPIView(generics.ListAPIView):
     def get_queryset(self):
         qs=BankDetails.objects.all()
         ifsccode=self.request.GET.get('ifsc')
-        authentication_classes=[JWTAuthentication,]
-        permission_classes=[IsAuthenticated,]
         if ifsccode is not None:
             qs=qs.filter(ifsc__icontains=ifsccode)
         return qs
+    authentication_classes=[JWTAuthentication,]
+    permission_classes=[IsAuthenticated,]
